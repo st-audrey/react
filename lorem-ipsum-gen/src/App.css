@@ -1,11 +1,25 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css?family=Cinzel+Decorative&display=swap');
+
+body {
+    text-align: center;
+    font-family: 'Cinzel Decorative', cursive;
 }
 
 .App-header {
   color: white;
 }
 
+.section1 {
+    color: white;
+    display: flex;
+    justify-content: center;
+}
 
+.select-btn{
+    margin : 25px 0 0 15px;
+}
 
+h2{
+    margin-left:10px;
+}
 

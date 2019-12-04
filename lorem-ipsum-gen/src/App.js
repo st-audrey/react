@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
-import './components/HeroButton';
 import HeroButton from './components/HeroButton';
+import ParagraphButton from './components/ParagraphButton';
+import StartButton from './components/StartButton';
 
 class App extends Component {
     constructor(props) {
@@ -20,8 +21,13 @@ class App extends Component {
                 <header className="App-header">
                     <p>Lorem Ipsum Gen</p>
                 </header>
-                <section>
-                    <HeroButton/>
+                <section className="section1">
+                    <h2>Choissisez un personnage :</h2>
+                    <HeroButton />
+                    <h2>Paragraphes :</h2>
+                    <ParagraphButton />
+                    <h2>Commencer par :</h2>
+                    <StartButton />
                 </section>
                 <footer></footer>
             </div>

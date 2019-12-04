@@ -1,15 +1,13 @@
 import React, { Component } from 'react'
 
-class HeroButton extends Component {
+class StartButton extends Component {
 
 
     state = {
         navBtns: [
-            { id: 1, nom: 'Hero1'},
-            { id: 2, nom: 'Hero2' },
-            { id: 3, nom: 'Hero3' },
-            { id: 4, nom: 'Hero4' },
-            { id: 5, nom: 'Hero5' }
+            { id: 1, nom: 'Lorem ipsum dolor sit amet'},
+            { id: 2, nom: 'Quand on joue au jeu des Tr\xF4nes, soit on gagne soit on meurt'},
+            { id: 3, nom: 'Les mots de mon personnages'},
         ]
     }
 
@@ -31,4 +29,4 @@ class HeroButton extends Component {
 }
 
 
-export default HeroButton
+export default StartButton

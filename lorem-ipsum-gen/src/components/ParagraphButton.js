@@ -1,15 +1,15 @@
 import React, { Component } from 'react'
 
-class HeroButton extends Component {
+class ParagraphButton extends Component {
 
 
     state = {
         navBtns: [
-            { id: 1, nom: 'Hero1'},
-            { id: 2, nom: 'Hero2' },
-            { id: 3, nom: 'Hero3' },
-            { id: 4, nom: 'Hero4' },
-            { id: 5, nom: 'Hero5' }
+            { id: 1, nom: "1"},
+            { id: 2, nom: "2"},
+            { id: 3, nom: "3"},
+            { id: 4, nom: "4"},
+            { id: 5, nom: "5"}
         ]
     }
 
@@ -31,4 +31,4 @@ class HeroButton extends Component {
 }
 
 
-export default HeroButton
+export default ParagraphButton
