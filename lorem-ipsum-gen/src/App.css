@@ -6,12 +6,12 @@ body {
 }
 
 .App-header {
-  color: white;
+    color: white;
 }
 
 .inline-b {
     color: white;
-    display:inline-block!important;
+    display:inline-block;
 }
 
 .section2 {
@@ -33,3 +33,13 @@ label {
     margin-left: 10px;
 }
 
+.submit-form {
+    font-family: 'Cinzel Decorative', cursive;
+    font-size:larger;
+    display: block;
+    padding: 15px 35px 15px;
+    border-radius: 10px;
+    margin-left: auto;
+    margin-top: 35px;
+    margin-right: auto;
+}

@@ -6,15 +6,16 @@ import Form from './components/Form';
 class App extends Component {
     constructor(props) {
         super(props);
-       
-    }
 
-    state = {
-        text: ''
+
+
+        this.state = {
+            text: ''
+        }
     }
 
     render() {
-       
+
         return (
             <div className="App">
                 <header className="App-header">
@@ -22,7 +23,7 @@ class App extends Component {
                     <h3>Lorem Ipsum Generator</h3>
                 </header>
                 <section>
-                    <Form/>
+                    <Form />
                 </section>
                 <section className="section2">
                     <p>oihfoiezhfoi</p>
@@ -32,7 +33,7 @@ class App extends Component {
         );
 
     }
-  
+
 }
 
 export default App;
