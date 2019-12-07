@@ -9,17 +9,14 @@ import { words } from './words';
 class App extends Component {
     constructor(props) {
         super(props);
-   
+
         this.state = {
-            
+
             numParagraphs: 1,
             numSentences: 5,
             text: this.ipsum(1, 5, words)
 
         };
-
-        this.updateParagraphs = this.updateParagraphs.bind(this); 
-        this.updateSentences = this.updateSentences.bind(this);
     }
 
   
@@ -33,14 +30,12 @@ class App extends Component {
 
     generate() {
         this.setState({
-            text: this.ipsum(this.state.numParagraphs, this.state.numSentences, words)
+            text: this.ipsum(this.state.numParagraphs, this.state.numSentences)
         })
     }
 
     ipsum(numParagraphs, numSentences, phrases) {
-
         var text = "";
-        
         if (numParagraphs < 1) {
             return text;
         }
@@ -52,7 +47,7 @@ class App extends Component {
                 for (var k = 0; k < numWords; k++) {
                     var words = "";
                     var wordNum = Math.floor(Math.random() * phrases.length);
-                    var word = phrases[wordNum];
+                    word = phrases[wordNum];
                     if (k !== 0) {
                         sentence += " ";
                     }
@@ -69,27 +64,28 @@ class App extends Component {
         return text;
     }
 
-
+};
 
     render() {
 
         return (
-            <div className="App">
-                <h1>Lorem of Thrones</h1>
-                <h3>Game of Thrones Lorem Ipsum Generator</h3>
+            <div className="App">              
+                <h1>Game of Thrones</h1>
+                <h3>Lorem Ipsum Generator</h3>
                 <FormComponent
                     updateParagraphs={this.updateParagraphs.bind(this)}
                     updateSentences={this.updateSentences.bind(this)}
                     numParagraphs={this.state.numParagraphs}
                     numSentences={this.state.numSentences}
                 />
-                <GeneratorComponent text={this.state.text} />
-          
+                <GeneratorComponent text={this.state.text}/>
+                <h1 className="result">{this.state.result}</h1>       
             </div>
         );
-    }
-}
 
+    }
+
+}
 
 export default App;
 
@@ -206,7 +202,34 @@ handleSubmit(event) {
    } else {
        this.setState({ result: "toto" });
    }*/
+/*stark: [
+            { id: 1, nom: "L'hivers vient..." },
+            { id: 2, nom: "Tous les hommes devraient respecter leur parole, les rois encore d'avantage." },
+            { id: 3, nom: "Je suis un homme du Nord. Ma place est ici, près de toi et non pas dans ce trou à rats qui leur sert de capitale." },
+            { id: 4, nom: "L'heure de la mort est la seule où l'on puisse se montrer brave." },
+            { id: 5, nom: "Celui-ci n'était que le guetteur. Pendez-le en dernier, qu'il guette la mort des autres." },
+            { id: 6, nom: "Les vieilles histoires sont comme de vieux amis. […] Il faut leur rendre visite de temps à autre." }
 
+        ],
+
+        lannister: [
+            { id: 1, nom: "Je Rugis !" },
+            { id: 2, nom: "Quand on joue au jeu des Tr\xF4nes, soit on gagne soit on meurt." },
+            { id: 3, nom: "Explique-moi donc en quoi il est plus noble de tuer dix mille hommes au combat qu'une douzaine à table ?" },
+            { id: 4, nom: "Un Lannister paye toujours ses dettes." },
+            { id: 5, nom: "Les gens se prétendent volontiers affamés de vérité, mais ils la trouvent rarement à leur goût lorsqu'on la leur sert." },
+            { id: 6, nom: "Il n'y a pas d'hommes tels que moi, il n'y a que moi." },
+
+        ],
+
+        targaryen: [
+            { id: 1, nom: "Feu et sang." },
+            { id: 2, nom: "Elle était du sang du dragon. Elle pouvait tuer les Fils de la Harpie, les fils de leurs fils, et les fils des fils de leurs fils." },
+            { id: 3, nom: "Pas une Princesse, une Khaleesi." },
+            { id: 4, nom: "Il n'était pas un dragon. Le feu ne peut pas tuer un dragon." },
+            { id: 5, nom: "Dracarys !" },
+            { id: 6, nom: "Jusqu’à ce que le soleil se lève à l’Ouest et se couche à l’Est." }
+        ],*/
 
 /*
    option1: [
@@ -229,9 +252,7 @@ handleSubmit(event) {
                 { id: 1, nom: 'Lorem ipsum dolor sit amet' },
                 { id: 2, nom: 'Quand on joue au jeu des Tr\xF4nes, soit on gagne soit on meurt' },
                 { id: 3, nom: 'La devise de ma maison' }
-            ],
-            
-hero: 'Stark',
+            ],hero: 'Stark',
 paragraph: '1',
 start: 'Lorem ipsum dolor sit amet',
 result: ''*/

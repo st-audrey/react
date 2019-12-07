@@ -1,5 +1,6 @@
+@import url('https://fonts.googleapis.com/css?family=Dancing+Script&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Cinzel+Decorative&display=swap');
-
+/*TODO : change stype on select > options*/
 body {
     text-align: center;
     font-family: 'Cinzel Decorative', cursive;
@@ -24,8 +25,11 @@ body {
     margin-right: auto;
 }
 
-.select-btn{
-    margin : 25px 0 0 15px;
+.select-btn {
+    font-family: 'Cinzel Decorative', cursive;
+    margin: 25px 0 0 15px;
+    padding: 5px 10px 5px;
+    border-radius: 10px;
 }
 
 label {
@@ -33,7 +37,7 @@ label {
     margin-left: 10px;
 }
 
-.submit-form {
+.generator {
     font-family: 'Cinzel Decorative', cursive;
     font-size:larger;
     display: block;
@@ -43,3 +47,10 @@ label {
     margin-top: 35px;
     margin-right: auto;
 }
+
+.result {
+    color: white;
+    font-family: 'Dancing Script', cursive;
+    font-size: 20px;
+}
+
