@@ -4,12 +4,9 @@ import SentenceSelectComponent from './SelectSentencesComponent';
 
 class FormComponent extends Component {
 
-
     render() {
-
         return (
             <div>
-                <div>Choose your options:</div>
                 <form action="">
                     <ParagraphSelectComponent updateParagraphs={this.props.updateParagraphs} numParagraphs={this.props.numParagraphs} />
                     <SentenceSelectComponent updateSentences={this.props.updateSentences} numSentences={this.props.numSentences}/>
@@ -18,6 +15,5 @@ class FormComponent extends Component {
         )
     }
 }
-
 
 export default FormComponent;
