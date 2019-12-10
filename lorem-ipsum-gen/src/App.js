@@ -1,17 +1,17 @@
 ﻿import React, { Component } from 'react';
 import './App.css';
 import Head from './components/Head';
+import Header from './components/Layouts/Header';
 import Buttons from './components/Buttons';
 import FormComponent from './components/FormComponent';
 import GeneratorComponent from './components/GeneratorComponent';
+import Footer from './components/Layouts/Footer';
 import { words } from './words';
 
 class App extends Component {
     constructor(props) {
-        super(props);
-   
-        this.state = {
-            
+        super(props);   
+        this.state = {            
             numParagraphs: 1,
             numSentences: 5,
             text: this.ipsum(1, 5, words)
@@ -20,7 +20,11 @@ class App extends Component {
         this.updateParagraphs = this.updateParagraphs.bind(this); 
         this.updateSentences = this.updateSentences.bind(this);
     }
-  
+
+    handleClick(){
+        console.log("toto");
+    }
+
     updateParagraphs(e) {
         this.setState({ numParagraphs: e.target.value }, this.generate);
     }
@@ -34,8 +38,6 @@ class App extends Component {
             text: this.ipsum(this.state.numParagraphs, this.state.numSentences, words)
         })
     }
-
-
 
     ipsum(numParagraphs, numSentences, phrases) {
         var text = "";
@@ -76,8 +78,10 @@ class App extends Component {
                     <title>Game of Thrones Lorem Ipsum Generator</title>
                     <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no"/>
                 </Head>
-                <h1>Lorem of Thrones</h1>
-                <h3>Game of Thrones Lorem Ipsum Generator</h3>
+                <Header />
+                <h1 className="title-main">Lorem of Thrones</h1>
+                <h3 className="title-sub">Game of Thrones Lorem Ipsum Generator</h3>
+
                 <Buttons>
                     <button className="btn-stark btn-houses" value="stark"></button>
                     <button className="btn-lannister btn-houses" value="lannister"></button>
@@ -89,7 +93,8 @@ class App extends Component {
                     numParagraphs={this.state.numParagraphs}
                     numSentences={this.state.numSentences}
                 />
-                <GeneratorComponent text={this.state.text} />         
+                <GeneratorComponent text={this.state.text} />  
+                <Footer />
             </div>
         );
     }

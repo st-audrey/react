@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+
 class Buttons extends Component {
     constructor() {
         super();
@@ -7,6 +8,7 @@ class Buttons extends Component {
     }
     selectItem(selected) {
         this.setState({ selected })
+        console.log("yuyu");
     }
     render() {
         let fn = child =>
