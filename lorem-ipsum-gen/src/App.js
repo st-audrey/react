@@ -2,7 +2,7 @@
 import './App.css';
 import Head from './components/Head';
 import Header from './components/Layouts/Header';
-import Buttons from './components/Buttons';
+//import Buttons from './components/Buttons';
 import FormComponent from './components/FormComponent';
 import GeneratorComponent from './components/GeneratorComponent';
 import Footer from './components/Layouts/Footer';
@@ -14,15 +14,38 @@ class App extends Component {
         this.state = {            
             numParagraphs: 1,
             numSentences: 5,
-            text: this.ipsum(1, 5, words)
+            text: this.ipsum(1, 5, words),
+            stark: "btn-stark btn-houses",
+            lannister: "btn-lannister btn-houses",
+            targaryen: "btn-targaryen btn-houses"
         };
 
         this.updateParagraphs = this.updateParagraphs.bind(this); 
         this.updateSentences = this.updateSentences.bind(this);
     }
 
-    handleClick(){
-        console.log("toto");
+    handleClick(e) {   
+        var myAudio = document.getElementById("myAudio");
+        
+        var house = e.target.value;
+        if (house === "stark") {
+            myAudio.play();
+            this.setState({ stark: "btn-stark-active btn-houses" });
+            this.setState({ lannister: "btn-lannister btn-houses" });
+            this.setState({ targaryen: "btn-targaryen btn-houses" });
+
+        } else if (house === "lannister") {
+            myAudio.play();
+            this.setState({ stark: "btn-stark btn-houses" });
+            this.setState({ lannister: "btn-lannister-active btn-houses" });
+            this.setState({ targaryen: "btn-targaryen btn-houses" });
+
+        } else {
+            myAudio.play();
+            this.setState({ stark: "btn-stark btn-houses" });
+            this.setState({ lannister: "btn-lannister btn-houses" });
+            this.setState({ targaryen: "btn-targaryen-active btn-houses" });
+        }      
     }
 
     updateParagraphs(e) {
@@ -82,11 +105,11 @@ class App extends Component {
                 <h1 className="title-main">Lorem of Thrones</h1>
                 <h3 className="title-sub">Game of Thrones Lorem Ipsum Generator</h3>
 
-                <Buttons>
-                    <button className="btn-stark btn-houses" value="stark"></button>
-                    <button className="btn-lannister btn-houses" value="lannister"></button>
-                    <button className="btn-targaryen btn-houses" value="targaryen"></button>                  
-                </Buttons>
+                <audio id="myAudio"><source src="sounds/btn.mp3" type="audio/mpeg"></source></audio>
+                <button className={this.state.stark} type="radio" value="stark" onClick={this.handleClick.bind(this)}></button>
+                <button className={this.state.lannister} type="radio" value="lannister" onClick={this.handleClick.bind(this)}></button>
+                <button className={this.state.targaryen} type="radio" value="targaryen" onClick={this.handleClick.bind(this)}></button>                  
+             
                 <FormComponent
                     updateParagraphs={this.updateParagraphs.bind(this)}
                     updateSentences={this.updateSentences.bind(this)}

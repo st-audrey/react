@@ -2,8 +2,11 @@
   "ExpandedNodes": [
     "",
     "\\src",
-    "\\src\\components"
+    "\\src\\components",
+    "\\src\\components\\Layouts",
+    "\\src\\img",
+    "\\src\\sounds"
   ],
-  "SelectedNode": "\\src\\words.js",
+  "SelectedNode": "\\src\\components\\Layouts",
   "PreviewInSolutionExplorer": false
 }

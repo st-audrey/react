@@ -32,7 +32,7 @@ class Header extends Component {
                     onClose={this.snackbarClose}
                     message={<span>{this.state.snackbarmsg}</span>}
                     action={[
-                        <button key="close" arial-label="Close" color="inherit" onClick={this.snackbarClose}>x</button>
+                        <button className="btn-snackbar-close" key="close" arial-label="Close" color="inherit" onClick={this.snackbarClose}>x</button>
                     ]}
                 />
                 <Toolbar>
