@@ -2,19 +2,27 @@
 import './App.css';
 import Head from './components/Head';
 import Header from './components/Layouts/Header';
-//import Buttons from './components/Buttons';
 import FormComponent from './components/FormComponent';
 import GeneratorComponent from './components/GeneratorComponent';
 import Footer from './components/Layouts/Footer';
+import Container from '@material-ui/core/Container';
 import { words } from './words';
+
+
+/*TODO*/
+
+//enlever les tags <p>texte-copié</p>
+//changer dynamiquement la classe du btn-copy pour état onClick
+//
+
 
 class App extends Component {
     constructor(props) {
         super(props);   
         this.state = {            
             numParagraphs: 1,
-            numSentences: 5,
-            text: this.ipsum(1, 5, words),
+            numSentences: 1,
+            text: this.ipsum(1, 1, words),
             stark: "btn-stark btn-houses",
             lannister: "btn-lannister btn-houses",
             targaryen: "btn-targaryen btn-houses"
@@ -24,9 +32,14 @@ class App extends Component {
         this.updateSentences = this.updateSentences.bind(this);
     }
 
+    handleCopy() {
+        var text = document.getElementById("generated-txt-hidden");      
+        text.select();
+        document.execCommand("copy");
+    }
+
     handleClick(e) {   
-        var myAudio = document.getElementById("myAudio");
-        
+        var myAudio = document.getElementById("myAudio");       
         var house = e.target.value;
         if (house === "stark") {
             myAudio.play();
@@ -72,7 +85,7 @@ class App extends Component {
             var paragraph = "";
             for (var j = 0; j < numSentences; j++) {
                 var sentence = "";
-                var numWords = Math.floor(Math.random() * 6 + 10);
+                var numWords = Math.floor(Math.random() * 2 + 10);
                 for (var k = 0; k < numWords; k++) {
                     var words = "";
                     var wordNum = Math.floor(Math.random() * phrases.length);
@@ -89,12 +102,11 @@ class App extends Component {
             }
             paragraph = "<p>" + paragraph + "</p>";
             text += paragraph;
-        }
-        return text;
+        }       
+        return text;       
     }
 
     render() {
-
         return (
             <div className="App">
                 <Head>
@@ -102,21 +114,27 @@ class App extends Component {
                     <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no"/>
                 </Head>
                 <Header />
-                <h1 className="title-main">Lorem of Thrones</h1>
-                <h3 className="title-sub">Game of Thrones Lorem Ipsum Generator</h3>
+                <Container maxWidth="xl">
+                    <h1 className="title-main">Lorem of Thrones</h1>
+                    <h3 className="title-sub">Game of Thrones Lorem Ipsum Generator</h3>
 
-                <audio id="myAudio"><source src="sounds/btn.mp3" type="audio/mpeg"></source></audio>
-                <button className={this.state.stark} type="radio" value="stark" onClick={this.handleClick.bind(this)}></button>
-                <button className={this.state.lannister} type="radio" value="lannister" onClick={this.handleClick.bind(this)}></button>
-                <button className={this.state.targaryen} type="radio" value="targaryen" onClick={this.handleClick.bind(this)}></button>                  
-             
-                <FormComponent
-                    updateParagraphs={this.updateParagraphs.bind(this)}
-                    updateSentences={this.updateSentences.bind(this)}
-                    numParagraphs={this.state.numParagraphs}
-                    numSentences={this.state.numSentences}
-                />
-                <GeneratorComponent text={this.state.text} />  
+                    <audio id="myAudio"><source src="sounds/btn.mp3" type="audio/mpeg"></source></audio>
+                    <button className={this.state.stark} type="radio" value="stark" onClick={this.handleClick.bind(this)}></button>
+                    <button className={this.state.lannister} type="radio" value="lannister" onClick={this.handleClick.bind(this)}></button>
+                    <button className={this.state.targaryen} type="radio" value="targaryen" onClick={this.handleClick.bind(this)}></button>                  
+                    
+                    <FormComponent
+                        updateParagraphs={this.updateParagraphs.bind(this)}
+                        updateSentences={this.updateSentences.bind(this)}
+                        numParagraphs={this.state.numParagraphs}
+                        numSentences={this.state.numSentences}
+                    />                  
+                    <GeneratorComponent text={this.state.text} />      
+                    <div class="wrap">
+                        <button className="btn-copy" onClick={this.handleCopy.bind(this)}>Copier</button>
+                    </div>
+                </Container>    
+                
                 <Footer />
             </div>
         );
